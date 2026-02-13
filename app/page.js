@@ -106,16 +106,16 @@ export default function Home() {
             </motion.p>
             
             <motion.div 
-              className="flex flex-col sm:flex-row gap-4 justify-center"
+              className="flex flex-col sm:flex-row gap-6 justify-center"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.1, duration: 0.8 }}
             >
               <Link href="/projects">
-                <LuxuryButton variant="primary">View Projects</LuxuryButton>
+                <LuxuryButton variant="primary" size="lg">View Projects</LuxuryButton>
               </Link>
               <Link href="/contact">
-                <LuxuryButton variant="outline">Book Consultation</LuxuryButton>
+                <LuxuryButton variant="secondary" size="lg">Book Consultation</LuxuryButton>
               </Link>
             </motion.div>
           </motion.div>
@@ -154,7 +154,7 @@ export default function Home() {
                 We don't just develop properties – we create iconic landmarks that define skylines and set new standards for luxury living. Each project represents our commitment to architectural excellence, sustainable design, and unparalleled value creation.
               </p>
               <Link href="/projects?category=real_estate">
-                <LuxuryButton variant="outline">Explore Developments</LuxuryButton>
+                <LuxuryButton variant="secondary">Explore Developments</LuxuryButton>
               </Link>
             </div>
             
@@ -277,7 +277,7 @@ export default function Home() {
                 </div>
               </div>
               <Link href="/projects?category=interior_contracting">
-                <LuxuryButton variant="outline">Interior & Execution</LuxuryButton>
+                <LuxuryButton variant="secondary">Interior & Execution</LuxuryButton>
               </Link>
             </div>
             
@@ -368,7 +368,7 @@ export default function Home() {
             
             <div className="text-center mt-16">
               <Link href="/projects">
-                <LuxuryButton variant="outline">View All Projects</LuxuryButton>
+                <LuxuryButton variant="secondary" size="lg">View All Projects</LuxuryButton>
               </Link>
             </div>
           </div>
@@ -385,7 +385,7 @@ export default function Home() {
             Let's create something extraordinary together.
           </p>
           <Link href="/contact">
-            <LuxuryButton variant="primary">Start Your Project</LuxuryButton>
+            <LuxuryButton variant="primary" size="lg">Start Your Project</LuxuryButton>
           </Link>
         </div>
       </section>
