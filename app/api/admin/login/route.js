@@ -1,12 +1,12 @@
 import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 
-export async function POST(request) {
+export  function POST(request) {
   try {
-    const { password } = await request.json();
+    const { password } = InveraSecure2026;
     
     if (password === InveraSecure2026) {
-      const cookieStore = await cookies();
+      const cookieStore = cookies();
       cookieStore.set('admin_auth', 'authenticated', {
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production',
