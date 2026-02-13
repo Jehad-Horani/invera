@@ -106,16 +106,16 @@ export default function Home() {
             </motion.p>
             
             <motion.div 
-              className="flex flex-col sm:flex-row gap-4 justify-center"
+              className="flex flex-col sm:flex-row gap-6 justify-center"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.1, duration: 0.8 }}
             >
               <Link href="/projects">
-                <LuxuryButton variant="primary">View Projects</LuxuryButton>
+                <LuxuryButton variant="primary" size="lg">View Projects</LuxuryButton>
               </Link>
               <Link href="/contact">
-                <LuxuryButton variant="outline">Book Consultation</LuxuryButton>
+                <LuxuryButton variant="secondary" size="lg">Book Consultation</LuxuryButton>
               </Link>
             </motion.div>
           </motion.div>
