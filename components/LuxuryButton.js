@@ -20,7 +20,7 @@ export default function LuxuryButton({
 
   const variants = {
     primary: `
-      bg-gradient-to-r from-[#c6a86b] to-[#d4b97a] text-black font-bold
+      bg-gradient-to-r from-[#c6a86b] to-[#d4b97a] text-white font-bold
       hover:shadow-lg hover:shadow-[#c6a86b]/30 hover:scale-[1.02]
       active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-[#c6a86b] focus-visible:ring-offset-2 focus-visible:ring-offset-black
       disabled:hover:scale-100 disabled:hover:shadow-none
