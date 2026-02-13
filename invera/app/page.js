@@ -154,7 +154,7 @@ export default function Home() {
                 We don't just develop properties – we create iconic landmarks that define skylines and set new standards for luxury living. Each project represents our commitment to architectural excellence, sustainable design, and unparalleled value creation.
               </p>
               <Link href="/projects?category=real_estate">
-                <LuxuryButton variant="outline">Explore Developments</LuxuryButton>
+                <LuxuryButton variant="secondary">Explore Developments</LuxuryButton>
               </Link>
             </div>
             
