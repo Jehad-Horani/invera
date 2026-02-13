@@ -25,32 +25,19 @@ export default function LuxuryButton({
   `;
   
   const sizes = {
-<<<<<<< HEAD:components/LuxuryButton.js
-    sm: "px-20 py-20 text-xs",
-    md: "px-20 py-20 text-[13px]",
-    lg: "px-20 py-20 text-sm",
-=======
     sm: "px-6 py-2.5 text-xs rounded-md",
     md: "px-8 py-3.5 text-sm rounded-lg",
     lg: "px-10 py-4 text-sm rounded-lg",
->>>>>>> 9601fbcacb8d6661e2abd1f0c4d27370a2d5fb26:invera/components/LuxuryButton.js
   };
 
   const variants = {
     primary: `
-<<<<<<< HEAD:components/LuxuryButton.js
-      bg-gradient-to-r from-[#c6a86b] to-[#d4b97a] text-white font-bold
-      hover:shadow-lg hover:shadow-[#c6a86b]/30 hover:scale-[1.02]
-      active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-[#c6a86b] focus-visible:ring-offset-2 focus-visible:ring-offset-black
-      disabled:hover:scale-100 disabled:hover:shadow-none
-=======
       bg-gradient-to-r from-[#c6a86b] to-[#d4b97a] 
       text-black
       shadow-[#c6a86b]/30
       hover:shadow-[#c6a86b]/50 
       hover:scale-105
       hover:from-[#d4b97a] hover:to-[#c6a86b]
->>>>>>> 9601fbcacb8d6661e2abd1f0c4d27370a2d5fb26:invera/components/LuxuryButton.js
     `,
     secondary: `
       bg-transparent 
