@@ -134,7 +134,7 @@ export default function Home() {
       </section>
 
       {/* DIVISION 1: REAL ESTATE DEVELOPMENT */}
-      <section className="py-32 bg-gradient-to-b from-[#0f0f0f] to-black relative overflow-hidden">
+      <section className="mt-5 px-10 py-32 bg-gradient-to-b from-[#0f0f0f] to-black relative overflow-hidden">
         <div className="absolute inset-0 opacity-5" style={{
           backgroundImage: 'repeating-linear-gradient(0deg, #c6a86b 0px, #c6a86b 1px, transparent 1px, transparent 60px), repeating-linear-gradient(90deg, #c6a86b 0px, #c6a86b 1px, transparent 1px, transparent 60px)'
         }}></div>
@@ -192,7 +192,7 @@ export default function Home() {
       </section>
 
       {/* DIVISION 2: ARCHITECTURE */}
-      <section className="py-32 bg-black relative">
+      <section className="mt-5 px-10 py-32 bg-black relative">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <SectionHeading 
             subtitle="Division 02"
@@ -243,7 +243,7 @@ export default function Home() {
       </section>
 
       {/* DIVISION 3: INTERIOR DESIGN & CONTRACTING */}
-      <section className="py-32 bg-gradient-to-b from-black to-[#0f0f0f] relative">
+      <section className="mt-5 px-10 py-32 bg-gradient-to-b from-black to-[#0f0f0f] relative">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <SectionHeading 
             subtitle="Division 03"
@@ -294,7 +294,7 @@ export default function Home() {
       </section>
 
       {/* DIVISION 4: RENOVATION & REDESIGN */}
-      <section className="py-32 bg-[#0f0f0f] relative">
+      <section className="  px-10 py-32 bg-[#0f0f0f] relative">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <SectionHeading 
             subtitle="Division 04"
@@ -349,7 +349,7 @@ export default function Home() {
 
       {/* FEATURED PROJECTS */}
       {featuredProjects.length > 0 && (
-        <section className="py-32 bg-black">
+        <section className="mt-5 py-32 bg-black">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <SectionHeading 
               subtitle="Portfolio"
@@ -376,7 +376,7 @@ export default function Home() {
       )}
 
       {/* FINAL CTA */}
-      <section className="py-32 bg-gradient-to-b from-black to-[#0f0f0f] text-center">
+      <section className="mt-5 py-32 bg-gradient-to-b from-black to-[#0f0f0f] text-center">
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-4xl md:text-6xl font-bold mb-6">
             Ready to Build Your Vision?

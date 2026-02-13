@@ -42,7 +42,7 @@
 
 /* Prevent horizontal overflow */
 html, body {
- margin: 20px;
+ margin-top: 50px;
 }
 
 html {
@@ -56,8 +56,7 @@ body {
   font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
   font-size: 16px;
   line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+ 
 }
 
 /* Typography */
