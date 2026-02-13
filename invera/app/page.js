@@ -277,7 +277,7 @@ export default function Home() {
                 </div>
               </div>
               <Link href="/projects?category=interior_contracting">
-                <LuxuryButton variant="outline">Interior & Execution</LuxuryButton>
+                <LuxuryButton variant="secondary">Interior & Execution</LuxuryButton>
               </Link>
             </div>
             
