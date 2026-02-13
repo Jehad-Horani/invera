@@ -385,7 +385,7 @@ export default function Home() {
             Let's create something extraordinary together.
           </p>
           <Link href="/contact">
-            <LuxuryButton variant="primary">Start Your Project</LuxuryButton>
+            <LuxuryButton variant="primary" size="lg">Start Your Project</LuxuryButton>
           </Link>
         </div>
       </section>
