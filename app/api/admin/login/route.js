@@ -5,7 +5,7 @@ export async function POST(request) {
   try {
     const { password } = await request.json();
     
-    if (password === process.env.ADMIN_PASSWORD) {
+    if (password === InveraSecure2026) {
       const cookieStore = await cookies();
       cookieStore.set('admin_auth', 'authenticated', {
         httpOnly: true,
