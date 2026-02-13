@@ -368,7 +368,7 @@ export default function Home() {
             
             <div className="text-center mt-16">
               <Link href="/projects">
-                <LuxuryButton variant="outline">View All Projects</LuxuryButton>
+                <LuxuryButton variant="secondary" size="lg">View All Projects</LuxuryButton>
               </Link>
             </div>
           </div>
