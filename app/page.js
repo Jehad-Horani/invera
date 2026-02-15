@@ -64,7 +64,7 @@ export default function Home() {
           />
         </div>
 
-        <div className="relative z-20 text-center site-container">
+        <div className="relative z-20 text-center max-w-[1200px] mx-auto px-5 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -142,7 +142,7 @@ export default function Home() {
           backgroundImage: 'repeating-linear-gradient(0deg, #C6A86B 0px, #C6A86B 1px, transparent 1px, transparent 60px), repeating-linear-gradient(90deg, #C6A86B 0px, #C6A86B 1px, transparent 1px, transparent 60px)'
         }} />
 
-        <div className="site-container relative z-10">
+        <div className="max-w-[1200px] mx-auto px-5 lg:px-8 relative z-10">
           <SectionHeading
             subtitle="Division 01"
             title="Real Estate Development"
@@ -196,7 +196,7 @@ export default function Home() {
 
       {/* ═══ DIVISION 2: ARCHITECTURE ═══ */}
       <section className="site-section bg-black relative" data-testid="division-architecture">
-        <div className="site-container">
+        <div className="max-w-[1200px] mx-auto px-5 lg:px-8">
           <SectionHeading
             subtitle="Division 02"
             title="Architecture"
@@ -247,7 +247,7 @@ export default function Home() {
 
       {/* ═══ DIVISION 3: INTERIOR DESIGN & CONTRACTING ═══ */}
       <section className="site-section bg-gradient-to-b from-black to-[#0B0B0B] relative" data-testid="division-interior">
-        <div className="site-container">
+        <div className="max-w-[1200px] mx-auto px-5 lg:px-8">
           <SectionHeading
             subtitle="Division 03"
             title="Interior Design & Contracting"
@@ -298,7 +298,7 @@ export default function Home() {
 
       {/* ═══ DIVISION 4: RENOVATION & REDESIGN ═══ */}
       <section className="site-section bg-[#0B0B0B] relative" data-testid="division-renovation">
-        <div className="site-container">
+        <div className="max-w-[1200px] mx-auto px-5 lg:px-8">
           <SectionHeading
             subtitle="Division 04"
             title="Renovation & Redesign"
@@ -348,7 +348,7 @@ export default function Home() {
       {/* ═══ FEATURED PROJECTS ═══ */}
       {featuredProjects.length > 0 && (
         <section className="site-section bg-black" data-testid="featured-projects-section">
-          <div className="site-container">
+          <div className="max-w-[1200px] mx-auto px-5 lg:px-8">
             <SectionHeading
               subtitle="Portfolio"
               title="Featured Projects"
@@ -375,7 +375,7 @@ export default function Home() {
 
       {/* ═══ FINAL CTA ═══ */}
       <section className="site-section bg-gradient-to-b from-black to-[#0B0B0B] text-center" data-testid="final-cta-section">
-        <div className="site-container max-w-3xl">
+        <div className="max-w-[1200px] mx-auto px-5 lg:px-8 max-w-3xl">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-[#F5F2EA]">
             Ready to Build Your Vision?
           </h2>
