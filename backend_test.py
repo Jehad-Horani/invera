@@ -1,10 +1,14 @@
 import requests
 import sys
 import json
+import tempfile
+import os
 from datetime import datetime
+from PIL import Image as PILImage
+import io
 
 class NextJSAPITester:
-    def __init__(self, base_url="http://localhost:3000"):
+    def __init__(self, base_url="https://7eea4923-fa73-44b8-bd6f-bf1f9153a434.preview.emergentagent.com"):
         self.base_url = base_url
         self.tests_run = 0
         self.tests_passed = 0
