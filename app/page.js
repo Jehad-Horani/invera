@@ -49,7 +49,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="p-5 ">
+    <main className="h-screen">
       {/* HERO SECTION */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div ref={heroRef} className="absolute inset-0 z-0">
@@ -165,7 +165,8 @@ export default function Home() {
                 fill
                 className="object-cover"
               />
-              <div className="absolute inset-0 border-2 border-[#c6a86b] -translate-x-4 -translate-y-4"></div>
+
+
             </div>
           </div>
 
