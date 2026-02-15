@@ -49,7 +49,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="min-h-screen">
+    <main className="p-5 ">
       {/* HERO SECTION */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div ref={heroRef} className="absolute inset-0 z-0">
