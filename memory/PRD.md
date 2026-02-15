@@ -53,14 +53,27 @@ UI/UX polishing of INVERA architecture/real-estate website. Issues identified on
 - Mobile Responsiveness: 100% ✅
 - Design Consistency: 100% ✅
 
+## Bug Fix: Project Detail Routing (Jan 15, 2026)
+### Root Causes Identified & Fixed ✅
+1. **Next.js 16 `params` is a Promise** — `params.slug` was `undefined` because `params` must be `await`ed. Fixed: `const { slug } = await params;`
+2. **`.single()` throws on no match** — Replaced with `.maybeSingle()` which returns `null` gracefully
+3. **Wrong Supabase client** — Server component was using browser client. Fixed: imported `supabaseServer`
+4. **Slug not regenerated on update** — Admin update API now regenerates slug when project name changes
+
+### Testing Results
+- Backend: 100% ✅
+- Frontend: 100% ✅
+- Code Fixes: 100% ✅
+
 ## Prioritized Backlog
 ### P0 (Done)
-- All 6 priority items from user request
+- All 6 UI/UX priority items
+- Project detail routing/data fetching fix
 
 ### P1 (Next)
+- Add `sizes` prop to all `Image` components with `fill` (optimization)
 - Add smooth entrance animations (staggered reveals) on scroll for sections
 - Implement project image gallery lightbox on project detail page
-- Add loading skeleton states for dynamic content
 
 ### P2 (Future)
 - Contact form backend integration (email notifications)
