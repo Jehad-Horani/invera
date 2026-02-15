@@ -65,3 +65,7 @@ next-env.d.ts
 *.env
 *.env.*
 >>>>>>> 9601fbcacb8d6661e2abd1f0c4d27370a2d5fb26
+-e 
+# Environment files
+*.env
+*.env.*
