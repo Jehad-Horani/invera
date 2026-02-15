@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 import { supabaseServer } from '@/lib/supabaseServer';
+import { slugify } from '@/lib/slugify';
 
 export async function PUT(request) {
   try {
@@ -13,6 +14,11 @@ export async function PUT(request) {
 
     const data = await request.json();
     const { id, ...updates } = data;
+
+    // Regenerate slug when name changes
+    if (updates.name) {
+      updates.slug = slugify(updates.name);
+    }
 
     const { data: project, error } = await supabaseServer
       .from('projects')
