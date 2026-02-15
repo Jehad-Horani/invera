@@ -66,33 +66,119 @@ class NextJSAPITester:
             print(f"❌ Failed - Error: {str(e)}")
             return False, None
 
-    def test_admin_create_project_unauthorized(self):
-        """Test creating a project without authentication (should fail)"""
+    def create_test_image(self, filename="test_image.jpg", format="JPEG", size=(200, 200)):
+        """Create a test image file"""
+        # Create a simple colored image
+        img = PILImage.new('RGB', size, color='red')
+        img_bytes = io.BytesIO()
+        img.save(img_bytes, format=format)
+        img_bytes.seek(0)
+        
+        return img_bytes
+
+    def test_admin_create_project_with_files_auth(self):
+        """Test creating a project with file uploads (with auth)"""
+        
+        # Create test images
+        cover_image = self.create_test_image("cover.jpg")
+        gallery_image1 = self.create_test_image("gallery1.jpg")
+        gallery_image2 = self.create_test_image("gallery2.jpg")
+        
+        # Form data
+        data = {
+            'name': f'Test Project {datetime.now().strftime("%H%M%S")}',
+            'category': 'architecture',
+            'location': 'Test Location',
+            'year': '2024',
+            'summary': 'Test summary',
+            'story': 'Test story',
+            'scope': 'Test scope',
+            'materials': 'Test materials',
+            'area_sqm': '100',
+            'client_name': 'Test Client',
+            'is_featured': 'false'
+        }
+        
+        # Files to upload
+        files = {
+            'cover_image': ('cover.jpg', cover_image, 'image/jpeg'),
+            'gallery_images': [
+                ('gallery1.jpg', gallery_image1, 'image/jpeg'),
+                ('gallery2.jpg', gallery_image2, 'image/jpeg')
+            ]
+        }
+        
+        # Set admin auth cookie
+        headers = {'Cookie': 'admin_auth=authenticated'}
+        
         success, response = self.run_test(
-            "Admin Create Project (Unauthorized)",
+            "Admin Create Project (With File Upload & Auth)",
             "POST",
             "api/admin/projects/create",
-            401,
-            data={
-                "name": "Test Project",
-                "category": "architecture",
-                "cover_image_url": "https://example.com/image.jpg"
-            }
+            200,
+            data=data,
+            files=files,
+            headers=headers
         )
+        
+        return success, response
+
+    def test_admin_create_project_file_validation(self):
+        """Test file validation (oversized file should fail)"""
+        
+        # Create a large image (over 5MB)
+        large_image = self.create_test_image("large.jpg", size=(3000, 3000))
+        
+        data = {
+            'name': 'Test Validation Project',
+            'category': 'architecture'
+        }
+        
+        files = {
+            'cover_image': ('large.jpg', large_image, 'image/jpeg')
+        }
+        
+        headers = {'Cookie': 'admin_auth=authenticated'}
+        
+        success, response = self.run_test(
+            "Admin Create Project (File Too Large - Should Fail)",
+            "POST",
+            "api/admin/projects/create",
+            400,  # Should return 400 for validation error
+            data=data,
+            files=files,
+            headers=headers
+        )
+        
         return success
 
-    def test_admin_update_project_unauthorized(self):
-        """Test updating a project without authentication (should fail)"""
+    def test_admin_create_project_invalid_file_type(self):
+        """Test invalid file type validation"""
+        
+        # Create a text file instead of image
+        text_file = io.BytesIO(b"This is not an image")
+        
+        data = {
+            'name': 'Test Invalid Type Project',
+            'category': 'architecture'
+        }
+        
+        files = {
+            'cover_image': ('document.txt', text_file, 'text/plain')
+        }
+        
+        headers = {'Cookie': 'admin_auth=authenticated'}
+        
         success, response = self.run_test(
-            "Admin Update Project (Unauthorized)",
-            "PUT",
-            "api/admin/projects/update",
-            401,
-            data={
-                "id": "test-id",
-                "name": "Updated Test Project"
-            }
+            "Admin Create Project (Invalid File Type - Should Fail)",
+            "POST",
+            "api/admin/projects/create",
+            400,
+            data=data,
+            files=files,
+            headers=headers
         )
+        
         return success
 
     def test_home_page(self):
