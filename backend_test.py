@@ -91,13 +91,12 @@ class FileUploadAPITester:
             gallery1_data = self.create_test_image('gallery1.png', format='PNG')
             gallery2_data = self.create_test_image('gallery2.jpg', format='JPEG')
 
-            files = {
-                'cover_image': ('test_cover.jpg', cover_data, 'image/jpeg'),
-                'gallery_images': [
-                    ('gallery1.png', gallery1_data, 'image/png'),
-                    ('gallery2.jpg', gallery2_data, 'image/jpeg')
-                ]
-            }
+            # Prepare files properly for requests
+            files = [
+                ('cover_image', ('test_cover.jpg', cover_data, 'image/jpeg')),
+                ('gallery_images', ('gallery1.png', gallery1_data, 'image/png')),
+                ('gallery_images', ('gallery2.jpg', gallery2_data, 'image/jpeg'))
+            ]
 
             data = {
                 'name': f'Test Project {datetime.now().strftime("%H%M%S")}',
