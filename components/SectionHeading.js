@@ -6,16 +6,16 @@ export default function SectionHeading({ subtitle, title, align = 'center', clas
   };
 
   return (
-    <div className={`mb-16 max-w-3xl ${alignClasses[align]} ${className}`}>
+    <div className={`mb-16 max-w-3xl ${alignClasses[align]} ${className}`} data-testid="section-heading">
       {subtitle && (
-        <p className="text-[#c6a86b] uppercase tracking-widest text-xs font-bold mb-4">
+        <p className="text-[#C6A86B] uppercase tracking-[0.25em] text-xs font-bold mb-4">
           {subtitle}
         </p>
       )}
-      <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
+      <h2 className="text-4xl md:text-5xl font-bold text-[#F5F2EA] leading-tight mb-6">
         {title}
       </h2>
-      <div className={`h-1 w-20 bg-[#c6a86b] ${align === 'center' ? 'mx-auto' : ''}`}></div>
+      <div className={`h-[2px] w-16 bg-[#C6A86B] ${align === 'center' ? 'mx-auto' : ''}`} />
     </div>
   );
 }
