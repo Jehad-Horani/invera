@@ -1,155 +1,93 @@
 @import "tailwindcss";
 
-:root {
-  /* Color System — Brand Palette */
-  --background: #0B0B0B;
-  --surface: #111111;
-  --border-subtle: rgba(198, 168, 107, 0.18);
-  --gold: #C6A86B;
-  --gold-hover: #D7BC7A;
-  --gold-dark: #b89756;
-  --text-primary: #F5F2EA;
-  --text-secondary: rgba(245, 242, 234, 0.72);
-
-  /* Spacing System */
-  --space-xs: 0.5rem;
-  --space-sm: 1rem;
-  --space-md: 1.5rem;
-  --space-lg: 2rem;
-  --space-xl: 3rem;
-  --space-2xl: 4rem;
-  --space-3xl: 5rem;
-  --space-4xl: 6rem;
-
-  /* Container */
-  --container-max: 1200px;
-  --container-px: clamp(1.25rem, 4vw, 2rem);
-
-  /* Section Rhythm */
-  --section-py: clamp(5rem, 10vw, 8rem);
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--text-primary);
+  --color-background: #0B0B0B;
+  --color-foreground: #F5F2EA;
   --font-serif: var(--font-serif);
   --font-sans: var(--font-sans);
 }
 
-/* ── Reset ── */
-*, *::before, *::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* ── Layered reset — won't override Tailwind utilities ── */
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+    overflow-x: hidden;
+  }
+
+  body {
+    background: #0B0B0B;
+    color: #F5F2EA;
+    font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif), Georgia, serif;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: #F5F2EA;
+  }
+
+  h1 { font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 1.25rem; }
+  h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1rem; }
+  h3 { font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: 0.75rem; }
+  h4 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); margin-bottom: 0.5rem; }
+  h5 { font-size: 1.125rem; margin-bottom: 0.5rem; }
+  h6 { font-size: 1rem; margin-bottom: 0.5rem; }
+
+  p {
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
+    max-width: 65ch;
+    color: rgba(245, 242, 234, 0.72);
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  button {
+    cursor: pointer;
+    font-family: inherit;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: #0B0B0B; }
+  ::-webkit-scrollbar-thumb { background: #C6A86B; border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: #D7BC7A; }
+
+  /* Selection */
+  ::selection { background: #C6A86B; color: #000; }
+
+  /* Focus */
+  *:focus-visible {
+    outline: 2px solid #C6A86B;
+    outline-offset: 3px;
+  }
+
+  /* Select dropdown */
+  select option {
+    background: #111111;
+    color: #F5F2EA;
+  }
 }
 
-/* ── Prevent horizontal overflow (PRIORITY 1) ── */
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 80px;
-  overflow-x: hidden;
-}
-
-body {
-  background: var(--background);
-  color: var(--text-primary);
-  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* ── Typography ── */
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-serif), Georgia, serif;
-  font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  color: var(--text-primary);
-}
-
-h1 { font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 1.25rem; }
-h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1rem; }
-h3 { font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: 0.75rem; }
-h4 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); margin-bottom: 0.5rem; }
-h5 { font-size: 1.125rem; margin-bottom: 0.5rem; }
-h6 { font-size: 1rem; margin-bottom: 0.5rem; }
-
-p {
-  line-height: 1.75;
-  margin-bottom: 1.25rem;
-  max-width: 65ch;
-  color: var(--text-secondary);
-}
-
-/* ── Links ── */
-a {
-  color: inherit;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-/* ── Button cursor ── */
-button {
-  cursor: pointer;
-  font-family: inherit;
-}
-
-/* ── Container utility ── */
-.site-container {
-  width: 100%;
-  max-width: var(--container-max);
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: var(--container-px);
-  padding-right: var(--container-px);
-}
-
-/* ── Section rhythm utility ── */
-.site-section {
-  padding-top: var(--section-py);
-  padding-bottom: var(--section-py);
-}
-
-/* ── Scrollbar ── */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--background);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--gold);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--gold-hover);
-}
-
-/* ── Selection ── */
-::selection {
-  background: var(--gold);
-  color: #000;
-}
-
-/* ── Focus ── */
-*:focus-visible {
-  outline: 2px solid var(--gold);
-  outline-offset: 3px;
-}
-
-/* ── Select dropdown fix for dark background ── */
-select option {
-  background: #111111;
-  color: var(--text-primary);
-}
-
-/* ── Reduced motion ── */
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
