@@ -13,12 +13,10 @@ class NextJSAPITester:
         self.tests_run = 0
         self.tests_passed = 0
 
-    def run_test(self, name, method, endpoint, expected_status, data=None, headers=None):
+    def run_test(self, name, method, endpoint, expected_status, data=None, files=None, headers=None):
         """Run a single API test"""
         url = f"{self.base_url}/{endpoint}"
-        if headers is None:
-            headers = {'Content-Type': 'application/json'}
-
+        
         self.tests_run += 1
         print(f"\n🔍 Testing {name}...")
         
@@ -26,9 +24,24 @@ class NextJSAPITester:
             if method == 'GET':
                 response = requests.get(url, headers=headers, timeout=10)
             elif method == 'POST':
-                response = requests.post(url, json=data, headers=headers, timeout=10)
+                if files:
+                    # For file uploads, don't set Content-Type header - let requests handle it
+                    response = requests.post(url, data=data, files=files, timeout=20)
+                else:
+                    if headers is None:
+                        headers = {'Content-Type': 'application/json'}
+                    response = requests.post(url, json=data, headers=headers, timeout=10)
             elif method == 'PUT':
-                response = requests.put(url, json=data, headers=headers, timeout=10)
+                if files:
+                    response = requests.put(url, data=data, files=files, timeout=20)
+                else:
+                    if headers is None:
+                        headers = {'Content-Type': 'application/json'}
+                    response = requests.put(url, json=data, headers=headers, timeout=10)
+            elif method == 'DELETE':
+                if headers is None:
+                    headers = {}
+                response = requests.delete(url, headers=headers, timeout=10)
 
             success = response.status_code == expected_status
             if success:
