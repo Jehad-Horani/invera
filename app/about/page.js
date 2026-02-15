@@ -10,7 +10,7 @@ export const metadata = {
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen pt-32 pb-20 bg-[#0f0f0f]">
+    <main className="min-h-screen pt-32 pb-20 bg-[#0f0f0f] flex items-center justify-center">
       {/* Hero */}
       <section className="relative h-[50vh] mb-20">
         <Image

@@ -351,7 +351,7 @@ export default function Home() {
 
       {/* FEATURED PROJECTS */}
       {featuredProjects.length > 0 && (
-        <section className="mt-5 py-32 bg-black">
+        <section className="mt-5 py-32 bg-black flex items-center justify-center">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <SectionHeading 
               subtitle="Portfolio"
@@ -378,7 +378,7 @@ export default function Home() {
       )}
 
       {/* FINAL CTA */}
-      <section className="mt-5 py-32 bg-gradient-to-b from-black to-[#0f0f0f] text-center">
+      <section className="mt-5 py-32 bg-gradient-to-b from-black to-[#0f0f0f] text-center flex items-center justify-center">
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-4xl md:text-6xl font-bold mb-6">
             Ready to Build Your Vision?

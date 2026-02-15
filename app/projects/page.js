@@ -59,7 +59,7 @@ export default function ProjectsPage() {
   }
 
   return (
-    <main className="min-h-screen pt-32 pb-20 bg-[#0f0f0f]">
+    <main className="min-h-screen pt-32 pb-20 bg-[#0f0f0f] flex items-center justify-center">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <SectionHeading 
           subtitle="Our Work"
@@ -76,7 +76,7 @@ export default function ProjectsPage() {
             className="w-full px-6 py-4 bg-black/50 border border-[#c6a86b]/20 text-white placeholder-white/50 focus:outline-none focus:border-[#c6a86b] transition-colors"
           />
 
-          <div className="flex flex-wrap gap-4 justify-center">
+          <div className="flex flex-wrap gap-10 justify-center">
             {categories.map((cat) => (
               <button
                 key={cat.value}

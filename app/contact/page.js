@@ -33,7 +33,7 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="min-h-screen pt-32 pb-20 bg-[#0f0f0f]">
+    <main className="min-h-screen pt-32 pb-20 bg-[#0f0f0f] flex items-center justify-center">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <SectionHeading 
           subtitle="Get In Touch"
