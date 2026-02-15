@@ -34,7 +34,7 @@ export default function Navbar() {
           : 'bg-transparent'
       }`}
     >
-      <div className="site-container">
+      <div className="max-w-[1200px] mx-auto px-5 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link
@@ -113,7 +113,7 @@ export default function Navbar() {
           mobileOpen ? 'max-h-[400px] opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
-        <div className="site-container py-6 space-y-1">
+        <div className="max-w-[1200px] mx-auto px-5 lg:px-8 py-6 space-y-1">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (

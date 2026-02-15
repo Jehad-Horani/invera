@@ -26,7 +26,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <div className="site-container">
+      <div className="max-w-[1200px] mx-auto px-5 lg:px-8">
         {/* Vision & Mission */}
         <section className="site-section" data-testid="vision-mission">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">

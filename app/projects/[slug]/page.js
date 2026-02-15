@@ -64,7 +64,7 @@ export default async function ProjectPage({ params }) {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0B] via-black/50 to-transparent" />
 
-        <div className="absolute bottom-0 left-0 right-0 site-container pb-12">
+        <div className="absolute bottom-0 left-0 right-0 max-w-[1200px] mx-auto px-5 lg:px-8 pb-12">
           <span className="text-[#C6A86B] text-xs uppercase tracking-[0.2em] font-bold mb-3 block">
             {project.category.replace('_', ' ')}
           </span>
@@ -79,7 +79,7 @@ export default async function ProjectPage({ params }) {
         </div>
       </div>
 
-      <div className="site-container">
+      <div className="max-w-[1200px] mx-auto px-5 lg:px-8">
         {/* Meta Data */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 py-12 mb-12 border-b border-[rgba(198,168,107,0.15)]" data-testid="project-meta">
           {project.area_sqm && (

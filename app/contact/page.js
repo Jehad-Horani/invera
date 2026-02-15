@@ -32,7 +32,7 @@ export default function ContactPage() {
 
   return (
     <main className="min-h-screen pt-28 pb-20 bg-[#0B0B0B]" data-testid="contact-page">
-      <div className="site-container">
+      <div className="max-w-[1200px] mx-auto px-5 lg:px-8">
         <SectionHeading
           subtitle="Get In Touch"
           title="Contact Us"
