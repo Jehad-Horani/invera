@@ -168,7 +168,7 @@ export default async function ProjectPage({ params }) {
         )}
 
         {/* CTA */}
-        <div className="text-center site-section border-t border-[rgba(198,168,107,0.15)]" data-testid="project-detail-cta">
+        <div className="text-center py-20 lg:py-28 border-t border-[rgba(198,168,107,0.15)]" data-testid="project-detail-cta">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#F5F2EA] mb-5">
             Interested in a Similar Project?
           </h2>

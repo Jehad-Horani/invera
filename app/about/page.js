@@ -28,7 +28,7 @@ export default function AboutPage() {
 
       <div className="max-w-[1200px] mx-auto px-5 lg:px-8">
         {/* Vision & Mission */}
-        <section className="site-section" data-testid="vision-mission">
+        <section className="py-20 lg:py-28" data-testid="vision-mission">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             <div className="bg-[#111111] border border-[rgba(198,168,107,0.18)] p-10 lg:p-12">
               <h2 className="text-2xl lg:text-3xl font-bold text-[#C6A86B] mb-6">Our Vision</h2>
@@ -47,7 +47,7 @@ export default function AboutPage() {
         </section>
 
         {/* Expertise */}
-        <section className="site-section" data-testid="expertise-section">
+        <section className="py-20 lg:py-28" data-testid="expertise-section">
           <SectionHeading
             subtitle="What We Do"
             title="Our Expertise"
@@ -86,7 +86,7 @@ export default function AboutPage() {
         </section>
 
         {/* Why Choose INVERA */}
-        <section className="site-section" data-testid="why-choose-section">
+        <section className="py-20 lg:py-28" data-testid="why-choose-section">
           <SectionHeading
             subtitle="Our Advantage"
             title="Why Choose INVERA"
@@ -131,7 +131,7 @@ export default function AboutPage() {
         </section>
 
         {/* Timeline */}
-        <section className="site-section" data-testid="timeline-section">
+        <section className="py-20 lg:py-28" data-testid="timeline-section">
           <SectionHeading
             subtitle="Our Journey"
             title="Company Timeline"
@@ -162,7 +162,7 @@ export default function AboutPage() {
         </section>
 
         {/* Founder Message */}
-        <section className="site-section" data-testid="founder-message">
+        <section className="py-20 lg:py-28" data-testid="founder-message">
           <div className="bg-[#111111] border border-[rgba(198,168,107,0.18)] p-10 md:p-16">
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#F5F2EA] mb-8">
@@ -183,7 +183,7 @@ export default function AboutPage() {
         </section>
 
         {/* CTA */}
-        <section className="text-center site-section border-t border-[rgba(198,168,107,0.12)]" data-testid="about-cta">
+        <section className="text-center py-20 lg:py-28 border-t border-[rgba(198,168,107,0.12)]" data-testid="about-cta">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#F5F2EA] mb-6">
             Let&apos;s Build Something Extraordinary
           </h2>

@@ -137,7 +137,7 @@ export default function Home() {
       </section>
 
       {/* ═══ DIVISION 1: REAL ESTATE DEVELOPMENT ═══ */}
-      <section className="site-section bg-gradient-to-b from-[#0B0B0B] to-black relative overflow-hidden" data-testid="division-real-estate">
+      <section className="py-20 lg:py-28 bg-gradient-to-b from-[#0B0B0B] to-black relative overflow-hidden" data-testid="division-real-estate">
         <div className="absolute inset-0 opacity-[0.03]" style={{
           backgroundImage: 'repeating-linear-gradient(0deg, #C6A86B 0px, #C6A86B 1px, transparent 1px, transparent 60px), repeating-linear-gradient(90deg, #C6A86B 0px, #C6A86B 1px, transparent 1px, transparent 60px)'
         }} />
@@ -195,7 +195,7 @@ export default function Home() {
       </section>
 
       {/* ═══ DIVISION 2: ARCHITECTURE ═══ */}
-      <section className="site-section bg-black relative" data-testid="division-architecture">
+      <section className="py-20 lg:py-28 bg-black relative" data-testid="division-architecture">
         <div className="max-w-[1200px] mx-auto px-5 lg:px-8">
           <SectionHeading
             subtitle="Division 02"
@@ -246,7 +246,7 @@ export default function Home() {
       </section>
 
       {/* ═══ DIVISION 3: INTERIOR DESIGN & CONTRACTING ═══ */}
-      <section className="site-section bg-gradient-to-b from-black to-[#0B0B0B] relative" data-testid="division-interior">
+      <section className="py-20 lg:py-28 bg-gradient-to-b from-black to-[#0B0B0B] relative" data-testid="division-interior">
         <div className="max-w-[1200px] mx-auto px-5 lg:px-8">
           <SectionHeading
             subtitle="Division 03"
@@ -297,7 +297,7 @@ export default function Home() {
       </section>
 
       {/* ═══ DIVISION 4: RENOVATION & REDESIGN ═══ */}
-      <section className="site-section bg-[#0B0B0B] relative" data-testid="division-renovation">
+      <section className="py-20 lg:py-28 bg-[#0B0B0B] relative" data-testid="division-renovation">
         <div className="max-w-[1200px] mx-auto px-5 lg:px-8">
           <SectionHeading
             subtitle="Division 04"
@@ -347,7 +347,7 @@ export default function Home() {
 
       {/* ═══ FEATURED PROJECTS ═══ */}
       {featuredProjects.length > 0 && (
-        <section className="site-section bg-black" data-testid="featured-projects-section">
+        <section className="py-20 lg:py-28 bg-black" data-testid="featured-projects-section">
           <div className="max-w-[1200px] mx-auto px-5 lg:px-8">
             <SectionHeading
               subtitle="Portfolio"
@@ -374,7 +374,7 @@ export default function Home() {
       )}
 
       {/* ═══ FINAL CTA ═══ */}
-      <section className="site-section bg-gradient-to-b from-black to-[#0B0B0B] text-center" data-testid="final-cta-section">
+      <section className="py-20 lg:py-28 bg-gradient-to-b from-black to-[#0B0B0B] text-center" data-testid="final-cta-section">
         <div className="max-w-[1200px] mx-auto px-5 lg:px-8 max-w-3xl">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-[#F5F2EA]">
             Ready to Build Your Vision?
