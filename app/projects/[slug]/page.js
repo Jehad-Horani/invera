@@ -1,15 +1,16 @@
-import { supabase } from '@/lib/supabaseClient';
+import { supabaseServer } from '@/lib/supabaseServer';
 import Image from 'next/image';
 import Link from 'next/link';
 import LuxuryButton from '@/components/LuxuryButton';
 
 export async function generateMetadata({ params }) {
+  const { slug } = await params;
   try {
-    const { data } = await supabase
+    const { data } = await supabaseServer
       .from('projects')
       .select('name, summary')
-      .eq('slug', params.slug)
-      .single();
+      .eq('slug', slug)
+      .maybeSingle();
 
     return {
       title: data ? `${data.name} | INVERA` : 'Project | INVERA',
@@ -24,23 +25,35 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function ProjectPage({ params }) {
+  const { slug } = await params;
+
   let project = null;
+  let fetchError = null;
+
   try {
-    const { data } = await supabase
+    const { data, error } = await supabaseServer
       .from('projects')
       .select('*')
-      .eq('slug', params.slug)
-      .single();
-    project = data;
-  } catch {
-    // Supabase may not be configured
+      .eq('slug', slug)
+      .maybeSingle();
+
+    if (error) {
+      fetchError = error.message;
+    } else {
+      project = data;
+    }
+  } catch (err) {
+    fetchError = err?.message || 'Unknown error';
   }
 
   if (!project) {
     return (
       <main className="min-h-screen pt-32 pb-20 bg-[#0B0B0B] flex items-center justify-center" data-testid="project-not-found">
-        <div className="text-center">
-          <h1 className="text-4xl font-bold text-[#F5F2EA] mb-6">Project Not Found</h1>
+        <div className="text-center max-w-md mx-auto px-5">
+          <h1 className="text-4xl font-bold text-[#F5F2EA] mb-4">Project Not Found</h1>
+          <p className="text-[rgba(245,242,234,0.6)] mb-8 text-sm">
+            The project &ldquo;{slug}&rdquo; could not be found. It may have been removed or the URL may be incorrect.
+          </p>
           <Link href="/projects">
             <LuxuryButton variant="outline" data-testid="back-to-projects-btn">Back to Projects</LuxuryButton>
           </Link>
@@ -66,7 +79,7 @@ export default async function ProjectPage({ params }) {
 
         <div className="absolute bottom-0 left-0 right-0 max-w-[1200px] mx-auto px-5 lg:px-8 pb-12">
           <span className="text-[#C6A86B] text-xs uppercase tracking-[0.2em] font-bold mb-3 block">
-            {project.category.replace('_', ' ')}
+            {project.category?.replace('_', ' ')}
           </span>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-[#F5F2EA] mb-3" data-testid="project-title">
             {project.name}
@@ -103,7 +116,7 @@ export default async function ProjectPage({ params }) {
           <div>
             <p className="text-[#C6A86B] text-xs uppercase tracking-[0.15em] font-bold mb-2">Category</p>
             <p className="text-xl font-bold text-[#F5F2EA] capitalize">
-              {project.category.replace('_', ' ')}
+              {project.category?.replace('_', ' ')}
             </p>
           </div>
         </div>
