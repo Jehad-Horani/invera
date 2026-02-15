@@ -2,6 +2,6 @@
   "name": "invera-frontend-proxy",
   "version": "1.0.0",
   "scripts": {
-    "start": "cd /app && npx next dev --port 3000 --hostname 0.0.0.0"
+    "start": "cd /app && node_modules/.bin/next dev --port 3000 --hostname 0.0.0.0"
   }
 }
