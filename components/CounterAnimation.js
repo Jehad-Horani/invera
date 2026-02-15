@@ -42,7 +42,7 @@ export default function CounterAnimation({ end, duration = 2000, suffix = '', pr
   }, [end, duration, suffix, prefix]);
 
   return (
-    <span ref={countRef} className="text-5xl md:text-7xl font-bold text-[#c6a86b]">
+    <span ref={countRef} className="text-4xl md:text-6xl font-bold text-[#C6A86B]" data-testid="counter-animation">
       {prefix}0{suffix}
     </span>
   );

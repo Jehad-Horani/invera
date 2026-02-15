@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${playfair.variable} ${inter.variable} antialiased bg-[#0f0f0f] text-white`}
+        className={`${playfair.variable} ${inter.variable} antialiased bg-[#0B0B0B] text-[#F5F2EA]`}
       >
         <Navbar />
         {children}
