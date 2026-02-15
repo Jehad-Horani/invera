@@ -29,14 +29,18 @@ export default function ProjectsPage() {
 
   async function fetchProjects() {
     setLoading(true);
-    const { data, error } = await supabase
-      .from('projects')
-      .select('*')
-      .order('created_at', { ascending: false });
-    
-    if (data) {
-      setProjects(data);
-      setFilteredProjects(data);
+    try {
+      const { data } = await supabase
+        .from('projects')
+        .select('*')
+        .order('created_at', { ascending: false });
+
+      if (data) {
+        setProjects(data);
+        setFilteredProjects(data);
+      }
+    } catch (e) {
+      // Supabase may not be configured
     }
     setLoading(false);
   }
@@ -49,7 +53,7 @@ export default function ProjectsPage() {
     }
 
     if (searchQuery) {
-      filtered = filtered.filter(p => 
+      filtered = filtered.filter(p =>
         p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         p.location?.toLowerCase().includes(searchQuery.toLowerCase())
       );
@@ -59,32 +63,34 @@ export default function ProjectsPage() {
   }
 
   return (
-    <main className="min-h-screen pt-32 pb-20 bg-[#0f0f0f] flex items-center justify-center">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <SectionHeading 
+    <main className="min-h-screen pt-28 pb-20 bg-[#0B0B0B]" data-testid="projects-page">
+      <div className="site-container">
+        <SectionHeading
           subtitle="Our Work"
           title="Projects Portfolio"
         />
 
         {/* Search & Filter */}
-        <div className="mb-16 space-y-6">
+        <div className="mb-14 space-y-5" data-testid="projects-filter">
           <input
             type="text"
             placeholder="Search projects..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full px-6 py-4 bg-black/50 border border-[#c6a86b]/20 text-white placeholder-white/50 focus:outline-none focus:border-[#c6a86b] transition-colors"
+            className="w-full px-5 py-4 bg-[#111111] border border-[rgba(198,168,107,0.18)] text-[#F5F2EA] placeholder-[rgba(245,242,234,0.4)] focus:outline-none focus:border-[#C6A86B] transition-colors text-sm"
+            data-testid="projects-search-input"
           />
 
-          <div className="flex flex-wrap gap-10 justify-center">
+          <div className="flex flex-wrap gap-3 justify-center">
             {categories.map((cat) => (
               <button
                 key={cat.value}
                 onClick={() => setActiveCategory(cat.value)}
-                className={`px-6 py-3 text-sm uppercase tracking-wider transition-all duration-300 ${
+                data-testid={`filter-btn-${cat.value}`}
+                className={`px-5 py-2.5 text-xs uppercase tracking-[0.12em] font-bold transition-all duration-300 ${
                   activeCategory === cat.value
-                    ? 'bg-[#c6a86b] text-black font-bold'
-                    : 'bg-black/50 text-white/70 hover:text-white border border-[#c6a86b]/20 hover:border-[#c6a86b]'
+                    ? 'bg-[#C6A86B] text-black shadow-[0_2px_12px_rgba(198,168,107,0.25)]'
+                    : 'bg-[#111111] text-[rgba(245,242,234,0.6)] border border-[rgba(198,168,107,0.18)] hover:text-[#F5F2EA] hover:border-[#C6A86B]'
                 }`}
               >
                 {cat.label}
@@ -95,15 +101,15 @@ export default function ProjectsPage() {
 
         {/* Projects Grid */}
         {loading ? (
-          <div className="text-center py-20">
-            <div className="inline-block animate-spin w-12 h-12 border-4 border-[#c6a86b] border-t-transparent rounded-full"></div>
+          <div className="text-center py-20" data-testid="projects-loading">
+            <div className="inline-block animate-spin w-10 h-10 border-3 border-[#C6A86B] border-t-transparent rounded-full" />
           </div>
         ) : filteredProjects.length === 0 ? (
-          <div className="text-center py-20">
-            <p className="text-2xl text-white/50">No projects found</p>
+          <div className="text-center py-20" data-testid="projects-empty">
+            <p className="text-xl text-[rgba(245,242,234,0.4)]">No projects found</p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" data-testid="projects-grid">
             {filteredProjects.map((project) => (
               <ProjectCard key={project.id} project={project} />
             ))}
