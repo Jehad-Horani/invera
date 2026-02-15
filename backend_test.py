@@ -160,10 +160,10 @@ class FileUploadAPITester:
             new_cover_data = self.create_test_image('updated_cover.webp', format='WEBP')
             new_gallery_data = self.create_test_image('new_gallery.jpg', format='JPEG')
 
-            files = {
-                'cover_image': ('updated_cover.webp', new_cover_data, 'image/webp'),
-                'gallery_images': ('new_gallery.jpg', new_gallery_data, 'image/jpeg')
-            }
+            files = [
+                ('cover_image', ('updated_cover.webp', new_cover_data, 'image/webp')),
+                ('gallery_images', ('new_gallery.jpg', new_gallery_data, 'image/jpeg'))
+            ]
 
             data = {
                 'id': str(self.created_project_id),
