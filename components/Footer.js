@@ -68,11 +68,14 @@ export default function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="pt-8 border-t border-[rgba(198,168,107,0.1)]">
-          <p className="text-center text-[rgba(245,242,234,0.4)] text-xs tracking-wider">
-            &copy; {currentYear} INVERA. All rights reserved.
-          </p>
-        </div>
+           <div className="border-t border-white/20 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center text-sm">
+                    <a href="https://jehadh-portfolio.vercel.app/" target="_blank" rel="noopener noreferrer"
+                    >
+
+                        © {new Date().getFullYear()} JHWebDev. All rights reserved.
+                    </a>
+
+                </div>
       </div>
     </footer>
   );
