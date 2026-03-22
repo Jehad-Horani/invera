@@ -162,7 +162,7 @@ export default function AboutPage() {
         </section>
 
         {/* Founder Message */}
-        <section className="py-20 lg:py-28" data-testid="founder-message">
+       /* <section className="py-20 lg:py-28" data-testid="founder-message">
           <div className="bg-[#111111] border border-[rgba(198,168,107,0.18)] p-10 md:p-16">
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#F5F2EA] mb-8">
@@ -180,7 +180,7 @@ export default function AboutPage() {
               </p>
             </div>
           </div>
-        </section>
+        </section>*/
 
         {/* CTA */}
         <section className="text-center py-20 lg:py-28 border-t border-[rgba(198,168,107,0.12)]" data-testid="about-cta">
